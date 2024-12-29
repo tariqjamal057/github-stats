@@ -1,0 +1,4 @@
+# Ignore everything in this directory and file
+
+## Node modules
+node_modules
