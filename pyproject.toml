@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "github-stats"
+version = "0.1.0"
+description = "A Django-based API that provides various GitHub commit statistics, including weekly commit activity, contributor activity, weekly commit count, and hourly commit frequency. This project allows you to fetch GitHub repository data dynamically, offering reusable filtering functionality to customize your queries."
+authors = ["Tariq Jamal A <tariqjamal4267324@gmail.com>"]
+license = "LICENSE"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
