@@ -1,0 +1,45 @@
+exclude: .versions\/.
+default_stages: [pre-commit, manual]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    - id: check-yaml
+      name: Check YAML
+      description: Simply check YAML files for parseable syntax.
+    - id: check-merge-conflict
+      name: Check Merge Conflict String
+      description: Check for files that contain merge conflict strings.
+  - repo: local
+    hooks:
+    - id: djlint
+      name: Djlint
+      entry: djlint
+      language: python
+      types: [html]
+      args: ["--reformat", "--format-css", "--format-js"]
+      
+    - id: black
+      name: black
+      entry: poetry run black
+      language: system
+      types: [python]
+      
+    - id: isort
+      name: isort
+      entry: poetry run isort
+      language: system
+      types: [python]
+      
+    - id: docformatter
+      name: docformatter
+      entry: poetry run docformatter
+      language: system
+      types: [python]
+      args: [--in-place, --config, ./pyproject.toml]
+      
+    - id: pylint
+      name: pylint
+      entry: poetry run pylint
+      language: system
+      types: [python]
