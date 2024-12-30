@@ -4,7 +4,8 @@
   "description": "A Django-based API that provides various GitHub commit statistics, including weekly commit activity, contributor activity, weekly commit count, and hourly commit frequency. This project allows you to fetch GitHub repository data dynamically, offering reusable filtering functionality to customize your queries.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i github-stats/static/style.css -o github-stats/static/styles.css"
   },
   "repository": {
     "type": "git",
