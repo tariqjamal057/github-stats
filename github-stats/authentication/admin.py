@@ -23,7 +23,9 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
     maintaining core user management functionality.
     """
 
-    pass
+    compressed_fields = True
+    warn_unsaved_form = True
+    list_filter_submit = True
 
 
 @admin.register(Group)
@@ -34,4 +36,5 @@ class GroupAdmin(BaseGroupAdmin, ModelAdmin):
     maintaining core group management functionality.
     """
 
-    pass
+    compressed_fields = True
+    warn_unsaved_form = True

@@ -44,6 +44,7 @@ ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(",")
 
 INSTALLED_APPS = [
     "unfold",
+    "unfold.contrib.filters",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -139,3 +140,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+## django-unfold config
+UNFOLD = {
+    "SITE_TITLE": "Github Stats By Tariq Jamal",
+    "SITE_HEADER": "TJ Github Stats",
+    "SITE_URL": "/",
+}
