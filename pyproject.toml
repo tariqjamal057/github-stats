@@ -9,6 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 django = "^5.1.4"
+django-environ = "^0.11.2"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -47,3 +48,4 @@ max_line_length=120
 [tool.pylint."MESSAGES CONTROL"]
 max-line-length = 99
 good-names = ["id"]
+disable = "import-error"

@@ -2,3 +2,12 @@
 
 ## Node modules
 node_modules
+
+## Cache folders and files
+__pycache__
+
+## sqlite database
+db.sqlite3
+
+## Env files
+.env
