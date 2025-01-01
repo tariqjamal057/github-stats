@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "theme",
+    "tailwind",
+    "django_browser_reload",
     "authentication",
     "readme",
 ]
@@ -61,6 +64,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = "github_stats.urls"
@@ -146,3 +150,12 @@ UNFOLD = {
     "SITE_HEADER": "TJ Github Stats",
     "SITE_URL": "/",
 }
+
+# django-tailwind config
+TAILWIND_APP_NAME = "theme"
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+NPM_BIN_PATH = env("NPM_BIN_PATH")
