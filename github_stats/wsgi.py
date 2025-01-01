@@ -1,5 +1,4 @@
-"""
-WSGI config for github_stats project.
+"""WSGI config for github_stats project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

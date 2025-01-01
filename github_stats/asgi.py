@@ -1,5 +1,4 @@
-"""
-ASGI config for github_stats project.
+"""ASGI config for github_stats project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
