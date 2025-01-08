@@ -158,4 +158,4 @@ TAILWIND_APP_NAME = "theme"
 
 INTERNAL_IPS = env("ALLOWED_HOSTS").split(",")
 
-NPM_BIN_PATH = env("NPM_BIN_PATH")
+NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
