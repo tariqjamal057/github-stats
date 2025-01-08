@@ -4,18 +4,18 @@
     <div class="container flex justify-between items-center mx-auto px-3 sm:px-0">
         <!-- Logo -->
 
-        {% include 'layouts/navbar/logo.html' %}
+        {% include 'utility/navbar/logo.html' %}
 
         <!-- Navigation links -->
         <div class="hidden md:flex gap-4 md:gap-6 lg:gap-8 h-full">
 
-            {% include 'layouts/navbar/nav_element.html' %}
+            {% include 'utility/navbar/nav_element.html' %}
 
         </div>
         <!-- Auth related navigation links -->
         <div class="hidden md:block">
 
-            {% include 'layouts/navbar/auth_element.html' %}
+            {% include 'utility/navbar/auth_element.html' %}
 
         </div>
         <!-- Mobile menu button -->
@@ -31,11 +31,11 @@
              class="container mx-auto md:hidden px-3 flex flex-col gap-4 h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out border-t-2">
             <!-- Navigation links -->
 
-            {% include 'layouts/navbar/nav_element.html' %}
+            {% include 'utility/navbar/nav_element.html' %}
 
             <!-- Auth related navigation links -->
 
-            {% include 'layouts/navbar/auth_element.html' %}
+            {% include 'utility/navbar/auth_element.html' %}
 
         </div>
     </div>
