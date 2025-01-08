@@ -52,9 +52,10 @@ INSTALLED_APPS = [
     "theme",
     "tailwind",
     "django_browser_reload",
-    "authentication",
-    "readme",
     "fontawesomefree",
+    "authentication",
+    "core",
+    "readme",
 ]
 
 MIDDLEWARE = [
