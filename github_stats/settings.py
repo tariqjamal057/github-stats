@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "django_browser_reload",
     "authentication",
     "readme",
+    "fontawesomefree",
 ]
 
 MIDDLEWARE = [
@@ -154,8 +155,6 @@ UNFOLD = {
 # django-tailwind config
 TAILWIND_APP_NAME = "theme"
 
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
+INTERNAL_IPS = env("ALLOWED_HOSTS").split(",")
 
 NPM_BIN_PATH = env("NPM_BIN_PATH")

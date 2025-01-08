@@ -1,0 +1,11 @@
+{% if request.user.is_authenticated %}
+    <a href=""
+       class="text-green-900 hover:text-black transition-colors duration-300 pb-3 md:p-0">Logout</a>
+{% else %}
+    <div class="flex gap-4 md:gap-6 lg:gap-8 justify-between flex-row items-center">
+        <a class="text-green-900 hover:text-black transition-colors duration-300 pb-3 md:p-0"
+           href="">Sign in</a>
+        <a class="bg-green-900 text-white rounded hover:bg-green-700 transition-all duration-300 p-2 mb-1 md:m-0"
+           href="">Get Started</a>
+    </div>
+{% endif %}
