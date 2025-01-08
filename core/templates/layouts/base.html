@@ -19,19 +19,40 @@
         <link href="{% static 'fontawesomefree/css/all.min.css' %}"
               rel="stylesheet"
               type="text/css" />
+        <style>
+            @keyframes float {
+                0% {
+                    transform: translateY(10px);
+                }
+
+                50% {
+                    transform: translateY(-10px);
+                }
+
+                100% {
+                    transform: translateY(10px);
+                }
+            }
+
+            .animate-float {
+                animation: float 3s ease-in-out infinite;
+            }
+        </style>
     </head>
     <body>
+        <div class="bg-gradient-to-tl from-green-200/25 via-slate-150/50 to-green-200/55 bg-blend-soft-light">
 
-        {% include 'utility/navbar/navbar.html' %}
+            {% include 'utility/navbar/navbar.html' %}
 
-        {% block content %}
+            {% block content %}
 
-        {% endblock content %}
+            {% endblock content %}
 
-        {% comment %}
-        {% include  'layouts/footer.html' %}
+            {% comment %}
+            {% include  'layouts/footer.html' %}
 
-        {% endcomment %}
+            {% endcomment %}
+        </div>
 
         {% block scripts %}
 
