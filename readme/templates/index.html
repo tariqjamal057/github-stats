@@ -10,10 +10,10 @@
 
 {% block content %}
 
-    <main class="bg-blend-hard-light flex justify-center items-center min-h-[90vh]">
-        <div class="container mx-auto px-3 sm:px-0 flex justify-center items-center md:justify-between h-full">
+    <main class=" flex justify-center items-center min-h-[90vh]">
+        <div class="container mx-auto px-3 sm:px-0 flex justify-center items-center md:justify-between h-full flex-col-reverse md:flex-row gap-y-10 md:gap-2">
             <!-- Left content -->
-            <div class="h-1/2 flex flex-col justify-center items-center text-center flex-1">
+            <div class="h-1/2 flex flex-col justify-center items-center text-center">
                 <h1 class="text-green-900 font-bold text-5xl md:text-6xl mb-6 md:mb-3">Create Readme Files</h1>
                 <p class="mb-3">
                     Genenrate professional readme files for your project without our initiative drag and drop builder and also view our templates.
@@ -28,11 +28,10 @@
                 </div>
             </div>
             <!-- Image container -->
-            <div class="hidden md:flex mix-blend-multiply justify-center items-center">
+            <div class="flex justify-center items-center">
                 <img src="{% static 'media/images/home.png' %}"
-                     alt="readme svg"
-                     width="70%"
-                     height="70%" />
+                     class='max-w-[60%]'
+                     alt="readme svg" />
             </div>
         </div>
     </main>
