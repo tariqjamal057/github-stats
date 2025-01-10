@@ -1,0 +1,15 @@
+<div class="flex justify-center items-center gap-4 md:gap-x-10 flex-col md:flex-row w-full md:w-10/12">
+
+    {% for type in build_types %}
+
+        <div class="shadow px-3 py-5 rounded hover:bg-green-50 hover:shadow-lg transition-all duration-500">
+            <i class="{{ type.icon }} mb-2 text-xl md:text-2xl"></i>
+            <h4 class="mb-2 font-semibold">{{ type.title }}</h4>
+            <p class="mb-2 text-sm">{{ type.description }}</p>
+            <a href="{% url type.url %}"
+               class="p-2 rounded border border-green-900 hover:bg-green-900 hover:text-white transition-colors duration-200 text-sm">{{ type.action_name }} <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+    {% endfor %}
+
+</div>

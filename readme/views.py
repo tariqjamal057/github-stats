@@ -2,6 +2,8 @@
 
 from django.views.generic import TemplateView
 
+from core import constant
+
 
 class Home(TemplateView):
     """A class-based view that renders the home page template.
@@ -11,3 +13,13 @@ class Home(TemplateView):
     """
 
     template_name = "index.html"
+
+    def get_context_data(self, **kwargs):
+        """Get the context data for the template.
+
+        Returns:
+            dict: The context data for the template.
+        """
+        context = super().get_context_data(**kwargs)
+        context["build_types"] = constant.README_BUILD_TYPES
+        return context
