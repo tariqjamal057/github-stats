@@ -1,24 +1,42 @@
-<footer class="container mx-auto px-3 py-3 sm:px-0 bg-gradient-to-bl from-green-600 via-emerald-400 to-teal-300 hover:from-teal-600 hover:via-green-400 hover:to-emerald-300 transition-all duration-500">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-        <div>
-            <!-- Logo -->
+<div class="flex flex-col">
+    <div class="bg-gradient-to-tl from-green-200/25 via-slate-150/50 to-green-200/55">
+        <footer class="container mx-auto px-3 sm:px-0 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-start">
+                <div class="col-span-12 md:col-span-4 border-b border-gray-300 md:border-none w-full flex justify-start items-center pb-3 md:pb-0">
+                    <div>
+                        <div class="mb:!mt-[-13px]">
 
-            {% include 'layouts/navbar/logo.html' %}
+                            {% include 'utility/navbar/logo.html' %}
 
-            <p>Create detailed documentation with ease.</p>
-        </div>
-        <div class="flex flex-col gap-4">
-            <!-- Navigation links -->
-            <a href="">Features</a>
-            <a href="">Template</a>
-            <a href="">Pricing</a>
-            <a href="">Contact</a>
-        </div>
-        <div class="flex flex-row gap-4">
-            <!-- Social media links -->
+                        </div>
+                        <p class="!mt-[-13px] text-sm">Create detailed documentation with ease.</p>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center items-start md:items-center gap-4 col-span-12 md:col-span-4 w-full border-b border-gray-300 md:border-none py-3 md:py-0">
+                    <div class="text-start text-sm flex flex-col gap-2">
+                        <h2 class="text-green-900 font-semibold !text-base">Navigation Links</h2>
+                        <a href="" class="hover:text-green-900 transition-colors duration-200">Features</a>
+                        <a href="" class="hover:text-green-900 transition-colors duration-200">Template</a>
+                        <a href="" class="hover:text-green-900 transition-colors duration-200">Pricing</a>
+                        <a href="" class="hover:text-green-900 transition-colors duration-200">Contact</a>
+                    </div>
+                </div>
+                <div class="flex flex-row gap-4 col-span-12 md:col-span-4 w-full justify-start items-center md:justify-end py-3 md:py-0">
+                    <div class="flex flex-col gap-y-3">
+                        <h2 class="text-green-900 font-semibold !text-base">Connect with us</h2>
 
-            {% include 'layouts/social_media_links.html' %}
+                        {% include 'layouts/social_media_links.html' %}
 
-        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
-</footer>
+    <div class="bg-green-900 text-white py-2 text-sm text-center">
+        <p>
+            © 2025 Readme Gen. All rights reserved. Built by <a href="https://github.com/tariqjamal057"
+    target="_blank"
+    class="font-semibold text-green-100">Tariq Jamal A</a>
+        </p>
+    </div>
+</div>
