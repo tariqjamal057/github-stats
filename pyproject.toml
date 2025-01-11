@@ -13,6 +13,7 @@ django-environ = "^0.11.2"
 django-unfold = "^0.43.0"
 django-tailwind = {extras = ["reload"], version = "^3.8.0"}
 fontawesomefree = "^6.6.0"
+django-soft-delete = "^1.0.16"
 
 
 [tool.poetry.group.dev.dependencies]
