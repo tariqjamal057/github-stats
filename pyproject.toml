@@ -50,5 +50,5 @@ max_line_length=120
 
 [tool.pylint."MESSAGES CONTROL"]
 max-line-length = 99
-good-names = ["id"]
+good-names = ["id", "app_name"]
 disable = "import-error, too-few-public-methods"

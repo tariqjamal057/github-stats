@@ -1,5 +1,8 @@
 """This module contains the constant values used accross the project."""
 
+# Readme APP name
+README_APP_NAME = "readme"
+
 # readme build types
 README_BUILD_TYPES = [
     {
@@ -8,7 +11,7 @@ README_BUILD_TYPES = [
         "description": "Build your README from scratch using our intuitive drag-and-drop "
         "interface with live preview.",
         "action_name": "Try Builder",
-        "url": "home",
+        "url": f"{README_APP_NAME}:home",
     },
     {
         "icon": "fa-solid fa-copy",
@@ -16,6 +19,6 @@ README_BUILD_TYPES = [
         "description": "Start with pre-built templates designed for different project types "
         "and customize them to your needs.",
         "action_name": "Explore Templates",
-        "url": "home",
+        "url": f"{README_APP_NAME}:home",
     },
 ]
