@@ -1,0 +1,53 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <title>
+
+            {% block title %}
+
+            {% endblock title %}
+
+        </title>
+        {% tailwind_css %}
+        <link href="{% static 'fontawesomefree/css/all.min.css' %}"
+              rel="stylesheet"
+              type="text/css" />
+    </head>
+    <body class="flex items-center justify-center min-h-screen md:h-screen">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 md:gap-8 rounded-lg overflow-hidden bg-gradient-to-bl from-green-50/50  via-gray-50/50 to-green-100/50 shadow-sm">
+                <div class="flex flex-col justify-center items-center md:py-3 mt-3 md:mt-0">
+
+                    {% include 'partials/navbar/logo.html' with icon_size='text-3xl md:text-5xl lg:text-6xl' padding_val='p-0' %}
+
+                    <div class=" md:flex items-center justify-center hidden">
+                        <img src="{% static '/media/images/Readme1.svg' %}"
+                             alt="Login Illustration"
+                             class="max-w-[80%] h-auto" />
+                    </div>
+                </div>
+                <div class="flex justify-center items-center w-full">
+
+                    {% block content %}
+
+                    {% endblock content %}
+
+                </div>
+            </div>
+        </div>
+
+        {% block scripts %}
+
+        {% endblock scripts %}
+
+        <!-- Fontawsome js -->
+        <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+{% load form_tag %}
+
+<div>
+    <label for="{{ field.id_for_label }}" class="{{ label_class }}">{{ field.label }}</label>
+    <div class="{{ help_text_class }}">{{ field.help_text }}</div>
+    <input type="{{ field_type }}" id="{{ field.id_for_label }}" name="{{ field.name }}" value=" 
+        {% if field.value %}{{ field.value }}{% endif %}
+         " placeholder="{{ placeholder }}" class="{{ field_class }}" />
+        <div class="{{ error_class }}">
+
+            {% for error in field.errors %}<p>{{ error }}</p>{% endfor %}
+
+        </div>
+    </div>

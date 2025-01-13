@@ -23,6 +23,7 @@ from github_stats import settings
 urlpatterns = [
     path("admin", admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
+    path("auth/", include("authentication.urls")),
     path("", include("readme.urls")),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

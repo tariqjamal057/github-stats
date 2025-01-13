@@ -159,3 +159,8 @@ TAILWIND_APP_NAME = "theme"
 INTERNAL_IPS = env("ALLOWED_HOSTS").split(",")
 
 NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
+
+# Auth redirect urls config
+LOGIN_REDIRECT_URL = "readme:home"
+LOGIN_URL = "auth:login"
+LOGOUT_REDIRECT_URL = LOGIN_URL

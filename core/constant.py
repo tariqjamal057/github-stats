@@ -3,6 +3,9 @@
 # Readme APP name
 README_APP_NAME = "readme"
 
+# Authentication App name
+AUTHENTICATION_APP_NAME = "auth"
+
 # readme build types
 README_BUILD_TYPES = [
     {

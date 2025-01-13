@@ -1,0 +1,33 @@
+{% extends "auth/layouts/base.html" %}
+
+{% load static %}
+
+{% load form_tag %}
+
+{% block title %}Login - README WebApp{% endblock %}
+
+{% block content %}
+
+    <div class="p-6 space-y-6 w-full">
+        <h2 class="text-2xl font-bold text-center text-green-900">Welcome Back!</h2>
+
+        {% include 'partials/form/errors.html' %}
+
+        <form class="space-y-4" action="{% url 'auth:login' %}" method="post">
+            {% csrf_token %}
+
+            {% render_form_field field=form.username field_type="text" placeholder="Enter your username" %}
+            {% render_form_field field=form.password field_type="password" placeholder="Enter your password" %}
+
+            <div class="text-sm text-green-900 hover:underline flex justify-between items-center">
+                <a href="{% url 'auth:register' %}">Create Account?</a>
+                <a href="#">Forgot password?</a>
+            </div>
+            <button type="submit"
+                    class="w-full bg-green-900 text-white font-semibold py-2 rounded-md hover:bg-green-600">
+                Login
+            </button>
+        </form>
+    </div>
+
+{% endblock %}
