@@ -1,21 +1,21 @@
 {% load static %}
 
-<nav class="bg-transparent shadow-sm w-100 bg-gradient-to-tl from-green-200/25 via-slate-150/50 to-green-200/55">
+<nav class="bg-transparent shadow-sm w-full bg-gradient-to-tl from-green-200/25 via-slate-150/50 to-green-200/55 backdrop-blur-sm fixed z-50">
     <div class="container flex justify-between items-center mx-auto px-3 sm:px-0 h-[10vh]">
         <!-- Logo -->
 
-        {% include 'utility/navbar/logo.html' %}
+        {% include 'partials/navbar/logo.html' %}
 
         <!-- Navigation links -->
         <div class="hidden md:flex gap-4 md:gap-6 lg:gap-8 h-full">
 
-            {% include 'utility/navbar/nav_element.html' %}
+            {% include 'partials/navbar/nav_element.html' %}
 
         </div>
         <!-- Auth related navigation links -->
         <div class="hidden md:block">
 
-            {% include 'utility/navbar/auth_element.html' %}
+            {% include 'partials/navbar/auth_element.html' %}
 
         </div>
         <!-- Mobile menu button -->
@@ -28,14 +28,14 @@
     <!-- Mobile menu dropdown -->
     <div>
         <div id="mobile-menu"
-             class="bg-white container mx-auto md:hidden px-3 flex flex-col gap-4 h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out border-t-2">
+             class="bg-gradient-to-tl from-green-200/25 via-slate-150/50 to-green-200/55 container mx-auto md:hidden px-3 flex flex-col gap-4 h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out">
             <!-- Navigation links -->
 
-            {% include 'utility/navbar/nav_element.html' %}
+            {% include 'partials/navbar/nav_element.html' %}
 
             <!-- Auth related navigation links -->
 
-            {% include 'utility/navbar/auth_element.html' %}
+            {% include 'partials/navbar/auth_element.html' %}
 
         </div>
     </div>
