@@ -19,6 +19,7 @@
         <link href="{% static 'fontawesomefree/css/all.min.css' %}"
               rel="stylesheet"
               type="text/css" />
+        <script src="https://unpkg.com/htmx.org@2.0.4"></script>
         <style>
             @keyframes float {
                 0% {
@@ -42,7 +43,7 @@
     <body>
         <div>
 
-            {% include 'utility/navbar/navbar.html' %}
+            {% include 'layouts/navbar.html' %}
 
             {% block content %}
 
