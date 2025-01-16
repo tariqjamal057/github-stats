@@ -21,7 +21,7 @@ from django.urls import include, path
 from github_stats import settings
 
 urlpatterns = [
-    path("admin", admin.site.urls),
+    path("admin/", admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
     path("auth/", include("authentication.urls")),
     path("", include("readme.urls")),
