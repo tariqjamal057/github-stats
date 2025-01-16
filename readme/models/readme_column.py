@@ -4,20 +4,10 @@ Defines the data structure for customizable columns and their groupings.
 """
 
 from django.db import models
+from django.utils.html import format_html
 
+from core.constant import ColumnBuildType
 from core.models import BaseModel
-
-
-class ColumnBuildType(models.TextChoices):
-    """Text choices defining the types of column builds available.
-
-    Choices:
-        USER: Column created by a user
-        DEFAULT: System default column
-    """
-
-    USER = "user", "User"
-    DEFAULT = "default", "Default"
 
 
 class ColumnIcons(models.TextChoices):
@@ -98,20 +88,62 @@ class IconChoices(models.TextChoices):
     USER_TIMES = "fa-solid fa-user-times", "User Times"
 
 
+class ColumnType(models.TextChoices):
+    """Text choices defining the types of columns available."""
+
+    BASIC = "basic", "Basic"
+    COMPONENT = "component", "Component"
+
+
+class ColumnSymbol(models.TextChoices):
+    """Text choices defining the symbols for columns."""
+
+    # basic elements
+    HEADING_1 = "#", "Heading 1"
+    HEADING_2 = "##", "Heading 2"
+    HEADING_3 = "###", "Heading 3"
+    HEADING_4 = "####", "Heading 4"
+    HEADING_5 = "#####", "Heading 5"
+    HEADING_6 = "######", "Heading 6"
+    PARAGRAPH = "", "Paragraph"
+    UNORDERED_LIST_TYPE_1 = "-", "Unordered List (-)"
+    UNORDERED_LIST_TYPE_2 = "*", "Unordered List (*)"
+    UNORDERED_LIST_TYPE_3 = "+", "Unordered List (+)"
+    ORDERED_LIST = "1.", "Ordered List"
+    BLOCKQUOTE = ">", "Block Quote"
+    # advanced elements
+    CODE = "code", "Code"
+    MULTILINE_CODE = "multiline_code", "Multiline Code"
+    HORIZONTAL_RULE = "---", "Horizontal Rule"
+    ITALIC = "italic", "Italic"
+    BOLD = "bold", "Bold"
+    STRIKETHROUGH = "strikethrough", "Strikethrough"
+    UNDERLINE = "underline", "Underline"
+    LINK = "link", "Link"
+    IMAGE = "image", "Image"
+    VIDEO = "video", "Video"
+    AUDIO = "audio", "Audio"
+    TABLE = "table", "Table"
+    TASK_LIST = "task_list", "Task List"
+    ESCAPING = "escaping", "Escaping"
+    FOOTNOTES = "footnotes", "Footnotes"
+
+
 class Column(BaseModel):
     """Model representing a configurable column in the README display.
 
     Attributes:
         name (str): Display name of the column
-        icon (str): Icon associated with the column
         symbol (str): Short symbol/identifier for the column
+        icon (str): Icon associated with the column
         description (str): Detailed description of the column's purpose
+        type (str): Type of column (basic/component)
         build_type (str): Type of column build (user/default)
         created_by (User): Reference to the user who created the column
     """
 
     name = models.CharField(max_length=255)
-    symbol = models.CharField(max_length=10)
+    symbol = models.CharField(max_length=50, choices=ColumnSymbol.choices)
     icon = models.CharField(
         max_length=50,
         choices=ColumnIcons.choices,
@@ -119,6 +151,12 @@ class Column(BaseModel):
         db_default=ColumnIcons.HEADING,
     )
     description = models.TextField(null=True, blank=True)
+    type = models.CharField(
+        max_length=20,
+        choices=ColumnType.choices,
+        default=ColumnType.BASIC,
+        db_default=ColumnType.BASIC,
+    )
     build_type = models.CharField(
         max_length=20,
         choices=ColumnBuildType.choices,
@@ -139,6 +177,15 @@ class Column(BaseModel):
             str: The name of the column
         """
         return str(self.name)
+
+    @property
+    def icon_tag(self):
+        """Generates HTML tag for the group's icon.
+
+        Returns:
+            str: HTML string containing FontAwesome icon markup
+        """
+        return format_html(f'<i class="{self.icon}"></i>')
 
 
 class Group(BaseModel):

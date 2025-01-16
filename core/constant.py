@@ -1,5 +1,7 @@
 """This module contains the constant values used accross the project."""
 
+from django.db import models
+
 # Readme APP name
 README_APP_NAME = "readme"
 
@@ -25,3 +27,15 @@ README_BUILD_TYPES = [
         "url": f"{README_APP_NAME}:home",
     },
 ]
+
+
+class ColumnBuildType(models.TextChoices):
+    """Text choices defining the types of column builds available.
+
+    Choices:
+        USER: Column created by a user
+        DEFAULT: System default column
+    """
+
+    USER = "user", "User"
+    DEFAULT = "default", "Default"
