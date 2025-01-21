@@ -129,17 +129,17 @@ class ColumnSymbol(models.TextChoices):
     FOOTNOTES = "footnotes", "Footnotes"
 
 
-class Column(BaseModel):
-    """Model representing a configurable column in the README display.
+class Component(BaseModel):
+    """Model representing a configurable component in the README display.
 
     Attributes:
-        name (str): Display name of the column
-        symbol (str): Short symbol/identifier for the column
-        icon (str): Icon associated with the column
-        description (str): Detailed description of the column's purpose
-        type (str): Type of column (basic/component)
-        build_type (str): Type of column build (user/default)
-        created_by (User): Reference to the user who created the column
+        name (str): Display name of the component
+        symbol (str): Short symbol/identifier for the component
+        icon (str): Icon associated with the component
+        description (str): Detailed description of the component's purpose
+        type (str): Type of component (basic/component)
+        build_type (str): Type of component build (user/default)
+        created_by (User): Reference to the user who created the component
     """
 
     name = models.CharField(max_length=255)
@@ -168,13 +168,13 @@ class Column(BaseModel):
     class Meta:
         """Meta class for model configuration."""
 
-        db_table = "columns"
+        db_table = "components"
 
     def __str__(self):
-        """Returns string representation of the Column.
+        """Returns string representation of the Component.
 
         Returns:
-            str: The name of the column
+            str: The name of the components
         """
         return str(self.name)
 
@@ -188,16 +188,16 @@ class Column(BaseModel):
         return format_html(f'<i class="{self.icon}"></i>')
 
 
-class Group(BaseModel):
-    """Model representing a group of related columns.
+class Section(BaseModel):
+    """Model representing a sections of related columns.
 
     Attributes:
-        name (str): Name of the column group
-        icon (str): Icon associated with the group
-        description (str): Detailed description of the group's purpose
-        columns (ManyToManyField): Collection of columns in this group
-        build_type (str): Type of group build (user/default)
-        created_by (User): Reference to the user who created the group
+        name (str): Name of the column sections
+        icon (str): Icon associated with the sections
+        description (str): Detailed description of the sections's purpose
+        columns (ManyToManyField): Collection of columns in this sections
+        build_type (str): Type of sections build (user/default)
+        created_by (User): Reference to the user who created the sections
     """
 
     name = models.CharField(max_length=255)
@@ -208,7 +208,7 @@ class Group(BaseModel):
         db_default=IconChoices.FOLDER,
     )
     description = models.TextField(null=True, blank=True)
-    columns = models.ManyToManyField(Column)
+    columns = models.ManyToManyField(Component)
     build_type = models.CharField(
         max_length=20,
         choices=ColumnBuildType.choices,
@@ -220,7 +220,7 @@ class Group(BaseModel):
     class Meta:
         """Meta class for model configuration."""
 
-        db_table = "groups"
+        db_table = "sections"
 
     def __str__(self):
         """Returns string representation of the Group.
