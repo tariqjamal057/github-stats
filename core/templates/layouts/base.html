@@ -15,30 +15,16 @@
             {% endblock title %}
 
         </title>
+        <!-- Tailwind css style dynamically handled by django-tailwind -->
         {% tailwind_css %}
+        <!-- Fontawesome style cdn -->
         <link href="{% static 'fontawesomefree/css/all.min.css' %}"
               rel="stylesheet"
               type="text/css" />
-        <script src="https://unpkg.com/htmx.org@2.0.4"></script>
-        <style>
-            @keyframes float {
-                0% {
-                    transform: translateY(10px);
-                }
-
-                50% {
-                    transform: translateY(-10px);
-                }
-
-                100% {
-                    transform: translateY(10px);
-                }
-            }
-
-            .animate-float {
-                animation: float 3s ease-in-out infinite;
-            }
-        </style>
+        <!-- Custom css link -->
+        <link rel="stylesheet"
+              href="{% static 'styles/base.css' %}"
+              type="text/css" />
     </head>
     <body>
         <div>
@@ -57,22 +43,13 @@
 
         {% endblock scripts %}
 
+        <!-- HTMX cdn -->
+        <script src="{% static 'dist/scripts/htmx/htmx.min.js' %}"></script>
+        <!-- Sortable JS cdn -->
+        <script src="{% static 'dist/scripts/sortable/sortable.min.js' %}"></script>
         <!-- Fontawsome js -->
         <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
         <!-- Custom js -->
-        <script>
-            function toggleMobileMenu() {
-                const mobileMenu = document.getElementById('mobile-menu');
-                const menuItems = mobileMenu.querySelectorAll('li', 'a');
-
-                if (mobileMenu.classList.contains('h-0')) {
-                    mobileMenu.classList.remove('h-0', 'opacity-0');
-                    mobileMenu.classList.add('h-auto', 'opacity-100', 'py-4');
-                } else {
-                    mobileMenu.classList.add('h-0', 'opacity-0');
-                    mobileMenu.classList.remove('h-auto', 'opacity-100', 'py-4');
-                }
-            }
-        </script>
+        <script src="{% static 'scripts/base.js' %}"></script>
     </body>
 </html>
