@@ -1,0 +1,109 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block title %}
+
+    Build Readme Files
+
+{% endblock title %}
+
+{% block content %}
+
+    <main class="container mx-auto px-3 sm:px-0 ">
+        <div class="pt-20 pb-2 grid ">
+            <div class="flex items-center grid-cols-12 bg-gray-50 border-b px-4 py-2">
+                <form hx-post="{% url 'readme:update_readme_file' readme_data.id %}"
+                      hx-trigger="change from:#filename-input"
+                      hx-swap="none"
+                      hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+                      method="post">
+                    <input type="text"
+                           id="filename-input"
+                           class="bg-transparent border-none ring-0 focus:ring-0 focus:bg-white ps-0 transition-all duration-100 ease-in-out focus:!p-2 focus:rounded"
+                           name="file_name"
+                           value="{{ readme_data.file_name }}"
+                           onblur="this.readOnly = true; this.value = this.value.endsWith('.md') ? this.value : this.value + '.md'"
+                           onfocusin="this.readOnly = false"
+                           onfocus="this.value = this.value.replace('.md', '')" />
+                </form>
+            </div>
+            <div class="flex justify-center items-start h-[80vh] grid-cols-12 bg-gray-50">
+                <div class="w-1/4 p-4 overflow-y-scroll h-full">
+                    <h2 class="text-lg font-semibold">Components</h2>
+                    <ul>
+
+                        {% for component in compoments %}
+
+                            <li class="border p-2 my-2 cursor-move"
+                                draggable="true"
+                                ondragstart="event.dataTransfer.setData('text/plain', JSON.stringify({type: 'component', name: 'Header'}))">
+                                {{ component.name }}
+                            </li>
+
+                        {% endfor %}
+
+                    </ul>
+                    <h2 class="text-lg font-semibold">Sections</h2>
+                    <ul>
+
+                        {% for section in sections %}
+
+                            <li class="border p-2 my-2 cursor-move"
+                                draggable="true"
+                                ondragstart="event.dataTransfer.setData('text/plain', JSON.stringify({type: 'component', name: 'Header'}))">
+                                {{ section.name }}
+                            </li>
+
+                        {% endfor %}
+
+                    </ul>
+                </div>
+                <div class="w-3/4 p-4 h-full">
+                    <div id="drop-area"
+                         class="border p-2 border-black border-dashed h-full  overflow-y-scroll"
+                         ondrop="drop(event)"
+                         ondragover="event.preventDefault()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}
+
+{% block scripts %}
+
+    <script>
+        function drop(event) {
+            event.preventDefault();
+            const data = JSON.parse(event.dataTransfer.getData('text/plain'));
+            const componentType = data.type;
+            const componentName = data.name;
+
+            // Prompt for input based on the type of component or section
+            const userInput = prompt(`Enter content for ${componentType} "${componentName}":`);
+            if (userInput) {
+                const componentElement = document.createElement('div');
+                componentElement.className = 'border p-2 my-2 draggable';
+                componentElement.innerHTML = `<strong>${componentName}:</strong> ${userInput}`;
+                componentElement.setAttribute('draggable', 'true');
+                componentElement.ondragstart = (e) => {
+                    e.dataTransfer.setData('text/plain', JSON.stringify(data));
+                };
+
+                // Append the new component to the readme content area
+                document.getElementById('drop-area').appendChild(componentElement);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Sortable on the readme content area
+            new Sortable(document.getElementById('drop-area'), {
+                animation: 150,
+                ghostClass: 'blue-background-class'
+            });
+        });
+    </script>
+
+{% endblock scripts %}

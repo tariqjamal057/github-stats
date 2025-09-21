@@ -1,0 +1,34 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% load form_tag %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block content %}
+
+    <main class="container mx-auto px-3 sm:px-0 flex justify-center items-center min-h-screen">
+        <div class="p-3 w-full md:w-1/2 lg:w-1/3">
+            <h2 class="text-lg md:text-xl font-bold text-center text-green-900">Create File</h2>
+
+            {% include 'partials/form/errors.html' %}
+
+            <form class="space-y-4"
+                  action="{% url 'readme:create_readme_file' %}"
+                  method="post">
+                {% csrf_token %}
+
+                {% render_form_field field=form.file_name field_type="text" placeholder="Enter filename" %}
+
+                <button type="submit"
+                        class="w-full text-sm bg-green-900 text-white font-semibold py-2 rounded-md hover:bg-green-600">
+                    Create
+                </button>
+            </form>
+        </div>
+    </main>
+
+{% endblock content %}

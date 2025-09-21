@@ -11,7 +11,7 @@
 {% block content %}
 
     <main>
-        <div class="flex justify-center items-center min-h-[90vh] bg-gradient-to-tl from-green-200/25 via-slate-150/50 to-green-200/55">
+        <div class="flex justify-center items-center min-h-screen bg-gradient-to-tl from-green-200/25 via-slate-150/50 to-green-200/55">
             <div class="container mx-auto px-3 sm:px-0 flex justify-center items-center md:justify-between h-full flex-col-reverse md:flex-row gap-y-10 md:gap-2">
                 <!-- Left content -->
                 <div class="h-1/2 flex flex-col justify-center items-center text-center">
@@ -21,7 +21,7 @@
                     </p>
                     <div class="my-4">
                         <button class="animate-float">
-                            <a href=""
+                            <a href="{% url 'readme:create_readme_file' %}"
                                class="p-2 rounded bg-green-900 text-white hover:bg-green-600 transition-all duration-100">Start Building <i class="fa-solid fa-arrow-right"></i></a>
                         </button>
                         <a href=""
@@ -30,7 +30,7 @@
                 </div>
                 <!-- Image container -->
                 <div class="flex justify-center items-center">
-                    <img src="{% static 'media/images/home1.svg' %}"
+                    <img src="{% static 'media/images/Readme2.svg' %}"
                          class="max-w-[60%]"
                          alt="readme svg" />
                 </div>
@@ -39,12 +39,12 @@
         <div class="container mx-auto px-3 sm:px-0 my-6 flex justify-center items-center flex-col gap-6">
             <h2 class="font-semibold text-2xl text-center">Choose your way to create readme files</h2>
 
-            {% include 'utility/home/build_type.html' %}
+            {% include 'partials/home/build_type.html' %}
 
         </div>
         <hr />
 
-        {% include 'utility/home/signup_helper.html' %}
+        {% include 'partials/home/signup_helper.html' %}
 
     </main>
 
